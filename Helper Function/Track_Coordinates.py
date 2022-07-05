@@ -6,13 +6,12 @@ def click_event(event, x, y, flags, param):
         print(x,', ' ,y)
         font = cv2.FONT_HERSHEY_SIMPLEX
         strXY = str(x) + ', '+ str(y)
-        #cv2.putText(img, strXY, (x, y), font, .5, (255, 255, 0), 1)
         cv2.circle(img, (x,y), 1, (0,0,0), -1)
         cv2.imshow('Track Layout', img)
 
 
 
-img = cv2.imread('test1.jpg')
+img = cv2.imread('layout.jpg')
 cv2.imshow('Track Layout', img)
 
 cv2.setMouseCallback('Track Layout', click_event)
