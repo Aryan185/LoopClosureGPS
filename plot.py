@@ -7,8 +7,9 @@ dataset = pd.read_csv('Dataset.csv')
 X = dataset.iloc[:, 0].values
 y = dataset.iloc[:, 1].values
 
-"""plt.scatter(X, y, color = 'cyan')
-plt.title('Error wala graph')
+#Uncomment to get the original graph
+"""plt.scatter(X, y, color = 'black')
+plt.title('Broken/faulty Graph')
 plt.xlabel('X')
 plt.ylabel('Y')
 plt.show()"""
@@ -27,7 +28,7 @@ def dist(x1,y1,x2,y2):
 for i in range(1,571):
     dist_from_origin = dist(int(X[0]),int(y[0]),int(X[i]),int(y[i]))
 
-    if X[i]==X[0]:
+    if X[i]==X[0] and dist_from_origin <65:
         X[i+1]=0
         y[i+1]=0
         for k in range(i-15, i):
@@ -35,7 +36,8 @@ for i in range(1,571):
             y[k] = y[k]/1.1
 
 
-plt.scatter(X, y, color='red', s=10)
+plt.scatter(X, y, color='gray', s=10)
+plt.title('Fixed Graph')
 plt.xlabel('X')
 plt.ylabel('Y')
 plt.show()
